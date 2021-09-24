@@ -10,7 +10,7 @@ XuperScan 是 XuperChain 的区块链浏览器，支持通过浏览器以可视
 
 ### 启动浏览器后端服务
 
-1. 在[Release 页面](https://github.com/xuperchain/xuperscan/releases) 下载后端服务
+1. 在 [Release 页面](https://github.com/xuperchain/xuperscan/releases) 下载后端服务
 2. 解压缩并启动浏览器后端服务
 
 - MacOS
