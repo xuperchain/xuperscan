@@ -5,7 +5,7 @@ XuperScan 是 XuperChain 的区块链浏览器，支持通过浏览器以可视
 ## 本地构建
 
 ### 环境准备
-1. [本地部署XuperChain 节点](https://github.com/xuperchain/xuperchain/blob/master/CONTRIBUTING_CN.md)
+1. [本地部署XuperChain 节点](https://github.com/xuperchain/xuperchain/blob/master/README.md)
 2. 安装 [node](https://nodejs.org/en/)和 [npm](https://www.npmjs.com/)，推荐使用的 nodejs 版本为 v11.15.0
 
 ### 启动浏览器后端服务
