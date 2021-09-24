@@ -1,0 +1,5 @@
+node: "127.0.0.1:37101"
+maxWatcherNum: 10
+sqliteDBPath: "./xindexer.db"
+bcname: "xuper"
+listen: ":8088"
