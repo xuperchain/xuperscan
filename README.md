@@ -12,8 +12,19 @@ XuperScan 是 XuperChain 的区块链浏览器，支持通过浏览器以可视
 
 根据你的操作系统，选择合适的命令，启动浏览器后端服务
 
-- MacOS: third_party/xuperindexer/bin/xindexer-darwin-amd64
-- Linux: third_party/xuperindexer/bin/xindexer-linux-amd64
+- MacOS
+
+``` bash
+  cd third_party/xuperindexer
+  bin/xindexer-darwin-amd64
+```
+
+- Linux:
+```
+  cd third_party/xuperindexer
+  bin/xindexer-linux-amd64
+
+``` 
 <!-- - Windows: third_party/xuperindexer/bin/xindexer-win-amd64 -->
  
 >  当前 浏览器后端服务只提供了 x86_64 的处理器支持，如果你使用其他处理器，请联系 XuperChain 官方适配
