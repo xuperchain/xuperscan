@@ -1,6 +1,6 @@
 # XuperScan 区块链浏览器
 
-XuperScan 是 XuperChain 的区块链浏览器，支持通过浏览器以可视化的方式查看区块，交易，合约等链上信息。
+XuperScan 是 XuperChain 的区块链浏览器，支持通过浏览器以可视化的方式查看区块，交易，合约等链上信息。
 
 ## 本地构建
 
