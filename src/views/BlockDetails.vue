@@ -208,8 +208,8 @@ export default {
     //搜索
     async getSearchList(data) {
       let res = await getSearch(data);
-      this.ResultsOf = res.data.data[0];
-      let txs = res.data.data[0].txs.split(",");
+      this.ResultsOf = res.data;
+      let txs = res.data.txs.split(",");
       txs.map(async (item) => {
         //获取交易列表
         let res = await getTransActions(item);

@@ -32,7 +32,7 @@ export default {
         this.$emit("SearchValue", value);
       } else if (res.msg == "txs") {
         this.$router.push({ path: "/transaction", query: { id: value } });
-      } else if (res.msg == "") {
+      } else if (res.msg == "block") {
         this.$emit("SearchValue", value);
         this.$router.push({ path: "/blockDetails", query: { id: value } });
       } else if (res.code == 1) {
