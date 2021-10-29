@@ -209,11 +209,10 @@ export default {
     async getSearchList(data) {
       let res = await getSearch(data);
       this.ResultsOf = res.data;
-      let txs = res.data.txs.split(",");
-      txs.map(async (item) => {
+      res.data.txs.map(async (item) => {
         //获取交易列表
         let res = await getTransActions(item);
-        this.TransactionList = res.txs;
+        this.TransactionList.push(...res.txs);
         this.total = this.TransactionList.length;
       });
     },

@@ -30,7 +30,7 @@ export default {
       if (res.code == 4) {
         this.$router.push({ path: "/null", query: { id: value } });
         this.$emit("SearchValue", value);
-      } else if (res.msg == "txs") {
+      } else if (res.msg == "tx") {
         this.$router.push({ path: "/transaction", query: { id: value } });
       } else if (res.msg == "block") {
         this.$emit("SearchValue", value);
