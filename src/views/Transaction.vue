@@ -138,7 +138,7 @@ export default {
     async getSearchList(data) {
       let res = await getSearch(data);
       this.jsonData = res;
-      this.ResultsOf = res.data[0];
+      this.ResultsOf = res.data;
     },
   },
   mounted() {

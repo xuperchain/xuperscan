@@ -208,12 +208,11 @@ export default {
     //搜索
     async getSearchList(data) {
       let res = await getSearch(data);
-      this.ResultsOf = res.data.data[0];
-      let txs = res.data.data[0].txs.split(",");
-      txs.map(async (item) => {
+      this.ResultsOf = res.data;
+      res.data.txs.map(async (item) => {
         //获取交易列表
         let res = await getTransActions(item);
-        this.TransactionList = res.txs;
+        this.TransactionList.push(...res.txs);
         this.total = this.TransactionList.length;
       });
     },

@@ -30,9 +30,9 @@ export default {
       if (res.code == 4) {
         this.$router.push({ path: "/null", query: { id: value } });
         this.$emit("SearchValue", value);
-      } else if (res.msg == "txs") {
+      } else if (res.msg == "tx") {
         this.$router.push({ path: "/transaction", query: { id: value } });
-      } else if (res.msg == "") {
+      } else if (res.msg == "block") {
         this.$emit("SearchValue", value);
         this.$router.push({ path: "/blockDetails", query: { id: value } });
       } else if (res.code == 1) {
