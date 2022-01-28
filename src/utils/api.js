@@ -46,9 +46,10 @@ export function getSearch(data) {
 *
 * @return {Object} 返回的首页信息
 */
-export function getStatus() {
+export function getStatus(host = '') {
+  host = typeof host != 'string' ? '' : host;
   return request({
-    url: `/v1/status`,
+    url: `${host}/v1/status`,
     method: 'get',
   })
 }

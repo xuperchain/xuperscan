@@ -88,14 +88,8 @@ export default {
       if (value == "" || value == undefined || value == null) {
         callback(new Error("地址不能为空"));
       } else {
-        // const reg =
-        //   /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
-        // if (!reg.test(value) && value != "") {
-        //   callback(new Error("请输入正确的IP地址"));
-        // } else {
-        let arr = ["127.0.0.1:8088", "43.128.73.205:8088"];
-        //   console.log(arr, this, "ces");
-        //   console.log(arr.indexOf(value) > -1, "arr.indexOf(value)>-1");
+
+        let arr = ["127.0.0.1:8088"];
         if (
           (this.listAdditionals &&
             this.listAdditionals.filter((v) => v.url == value).length > 0) ||
@@ -105,7 +99,6 @@ export default {
         } else {
           callback();
         }
-        // }
       }
     };
     let validatename = (rule, value, callback) => {
@@ -166,13 +159,7 @@ export default {
           id: "1",
           Content: "超级链",
           url: "http://127.0.0.1:8088",
-        },
-        // {
-        //   value: "超级链测试网",
-        //   id: "2",
-        //   Content: "超级链测试网",
-        //   url: "http://43.128.73.205:8088",
-        // },
+        }
       ],
 
       store: "",
@@ -261,7 +248,7 @@ export default {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           try {
-            let res = await getStatus(this.form.add);
+            let res = await getStatus(`http://${this.form.add}`);
             console.log(res);
             if (this.listAdditionals == null) this.listAdditionals = [];
             this.listAdditionals.push({
@@ -292,8 +279,6 @@ export default {
               this.maxLimit_out = false;
             }, 3300);
             return;
-            //  debounce(this.$message.error("构建地址失败：无效的地址"),300,false)
-            // console.log(err,"=================================");
           }
         } else {
           console.log("error submit!!");
