@@ -10,7 +10,7 @@ const service = axios.create({
 // request 拦截器
 service.interceptors.request.use(
   config => {
-    let baseURL = (config.custom_url || store.state.baseURL_list_value[0].url);
+    let baseURL = (config.baseURL || store.state.baseURL_list_value[0].url);
     if (String(baseURL).indexOf(`http://`) == -1) {
       baseURL = `http://${baseURL}`;
     }

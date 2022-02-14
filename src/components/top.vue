@@ -248,18 +248,19 @@ export default {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           try {
-            let res = await getStatus(`http://${this.form.add}`);
+            let user_url = `${this.form.add}`;
+            let res = await getStatus(user_url);
             console.log(res);
             if (this.listAdditionals == null) this.listAdditionals = [];
             this.listAdditionals.push({
               Content: this.form.name,
-              url: this.form.add,
+              url: user_url,
               value: this.form.name,
               id: Date.parse(new Date()),
             });
             this.value = this.form.name;
             let value_url = [];
-            value_url.push({ name: this.form.name, url: this.form.add });
+            value_url.push({ name: this.form.name, url: user_url });
             this.$store.commit("BASEURL_LIST_VALUE", value_url);
             window.localStorage.setItem(
               "From-Value",
