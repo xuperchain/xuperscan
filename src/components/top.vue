@@ -201,7 +201,7 @@ export default {
         this.listAdditionals.map((i) => {
           if (i.Content == value) {
             this.valuetit = i.value;
-            value_url.push({ name: i.value, url: `http://${i.url}` });
+            value_url.push({ name: i.value, url: `${i.url}` });
             this.$store.commit("BASEURL_LIST_VALUE", value_url);
             window.localStorage.setItem("value_url", JSON.stringify(value_url));
           }
