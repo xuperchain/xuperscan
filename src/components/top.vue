@@ -88,14 +88,8 @@ export default {
       if (value == "" || value == undefined || value == null) {
         callback(new Error("地址不能为空"));
       } else {
-        // const reg =
-        //   /^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
-        // if (!reg.test(value) && value != "") {
-        //   callback(new Error("请输入正确的IP地址"));
-        // } else {
-        let arr = ["127.0.0.1:8088", "43.128.73.205:8088"];
-        //   console.log(arr, this, "ces");
-        //   console.log(arr.indexOf(value) > -1, "arr.indexOf(value)>-1");
+
+        let arr = ["127.0.0.1:8088"];
         if (
           (this.listAdditionals &&
             this.listAdditionals.filter((v) => v.url == value).length > 0) ||
@@ -105,7 +99,6 @@ export default {
         } else {
           callback();
         }
-        // }
       }
     };
     let validatename = (rule, value, callback) => {
@@ -166,13 +159,7 @@ export default {
           id: "1",
           Content: "超级链",
           url: "http://127.0.0.1:8088",
-        },
-        // {
-        //   value: "超级链测试网",
-        //   id: "2",
-        //   Content: "超级链测试网",
-        //   url: "http://43.128.73.205:8088",
-        // },
+        }
       ],
 
       store: "",
@@ -214,7 +201,7 @@ export default {
         this.listAdditionals.map((i) => {
           if (i.Content == value) {
             this.valuetit = i.value;
-            value_url.push({ name: i.value, url: `http://${i.url}` });
+            value_url.push({ name: i.value, url: `${i.url}` });
             this.$store.commit("BASEURL_LIST_VALUE", value_url);
             window.localStorage.setItem("value_url", JSON.stringify(value_url));
           }
@@ -261,18 +248,19 @@ export default {
       this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           try {
-            let res = await getStatus(this.form.add);
+            let user_url = `${this.form.add}`;
+            let res = await getStatus(user_url);
             console.log(res);
             if (this.listAdditionals == null) this.listAdditionals = [];
             this.listAdditionals.push({
               Content: this.form.name,
-              url: this.form.add,
+              url: user_url,
               value: this.form.name,
               id: Date.parse(new Date()),
             });
             this.value = this.form.name;
             let value_url = [];
-            value_url.push({ name: this.form.name, url: this.form.add });
+            value_url.push({ name: this.form.name, url: user_url });
             this.$store.commit("BASEURL_LIST_VALUE", value_url);
             window.localStorage.setItem(
               "From-Value",
@@ -292,8 +280,6 @@ export default {
               this.maxLimit_out = false;
             }, 3300);
             return;
-            //  debounce(this.$message.error("构建地址失败：无效的地址"),300,false)
-            // console.log(err,"=================================");
           }
         } else {
           console.log("error submit!!");
